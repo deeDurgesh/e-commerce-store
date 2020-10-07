@@ -5,8 +5,6 @@ import {ProductConsumer} from '../context';
 
 export default class ProductList extends Component {
     render() {
-        console.log(this.state.products)
-
         return (
             <React.Fragment>
                 <div className="py-5">
@@ -14,9 +12,9 @@ export default class ProductList extends Component {
                         <Title name="Our" title="products" />
                         <div className="row">
                             <ProductConsumer>
-                                {(value)=> {
-                                    value.products.map(product => {
-                                       return <Product key={product.id} products={product} />
+                                {value=> {
+                                    return value.products.map(product => {
+                                       return <Product key={product.id} product={product} />
                                     })
                                 }}
                             </ProductConsumer>
